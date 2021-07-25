@@ -1,0 +1,40 @@
+{% extends 'Todolist/base.html' %}
+
+{% block title %} ToDoList {% endblock title %}
+
+{% block content %}
+
+<table class="table table-hover table-dark table-bordered text-center">
+    <thead>
+        <th scope='col'>TASK</th>
+        <th scope='col'>Complete</th>
+        <th scope='col'>VIEW</th>
+        <th scope='col'>UPDATE</th>
+        <th scope='col'>DELETE</th>
+    </thead>
+    {% for task in tasks %}
+    <tbody>
+    <tr>
+        {% if task.complete %}
+        <td class="fw-bold text-capitalize text-decoration-line-through">{{task.title}}</td>
+        <td class="h2 text-success">&#10003</td>
+
+        {% else %}
+        <td class="fw-bold text-capitalize">{{task.title}}</td>
+        <td class="h2 text-danger">&#10005</td>
+        {% endif %}
+
+        <td><button type="submit" class="btn btn-info"><a class="text-decoration-none link-light" href="{% url 'task_detail' task.id %}">View</a></button></td>
+        <td><button type="submit" class="btn btn-success"><a class="text-decoration-none link-light" href="{% url 'update_task' task.id %}">Update</a></button></td>
+        <td><button type="submit" class="btn btn-danger"><a class="text-decoration-none link-light" href="{% url 'delete_task' task.id %}">Delete</a></button></td>
+    </tr>
+    {% empty %}
+    <h3>
+        You Haven't Added Any Tasks
+    </h3>
+
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

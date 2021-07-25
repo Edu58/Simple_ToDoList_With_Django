@@ -1,0 +1,28 @@
+{% extends 'Todolist/base.html' %}
+
+{% block content %}
+
+<table class="table table-hover table-dark table-bordered text-center">
+    <tbody>
+        <tr>
+            <th scope='row'>Task</th>
+            <td class="text-capitalize">{{ task.title }}</td>
+        </tr>
+        <tr>
+            <th scope='row'>Date</th>
+            <td>{{ task.date }}</td>
+        </tr>
+        <tr>
+            <th scope='row'>Description</th>
+            <td>{{ task.description }}</td>
+        </tr>
+        <tr>
+            <th scope='row'>Complete</th>
+            <td>{{ task.complete }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<button type="submit" class="btn btn-primary btn-lg mt-4"><a class="text-decoration-none text-light" href="{% url 'tasks' %}">Go Back</a> </button>
+
+{% endblock content %}

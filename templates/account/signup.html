@@ -1,0 +1,16 @@
+{% extends 'Todolist/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Sign up {% endblock title %}
+
+{% block content %}
+<h2>Sign up for an account and start tracking tasks</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <button class="btn btn-primary btn-lg mt-4"  type="submit">Sign up</button>
+</form>
+<p>forgot password? <a class="text-decoration-none" href="{% url 'pass_reset' %}">click here to reset it</a></p>
+
+{% endblock content %}

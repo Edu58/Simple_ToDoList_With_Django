@@ -1,0 +1,17 @@
+{% extends 'Todolist/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Update ToDoList {% endblock title %}
+
+{% block content %}
+<h2>Update Task</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+
+    <button type="submit" class="btn btn-primary btn-lg mt-4"><a class="text-decoration-none text-light" href="{% url 'tasks' %}">Go Back</a> </button>
+    <button class="btn btn-success btn-lg mt-4" type="submit">Update</button>
+</form>
+
+{% endblock content %}
