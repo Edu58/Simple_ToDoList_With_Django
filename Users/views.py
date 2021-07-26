@@ -4,7 +4,7 @@ from allauth.account.views import SignupView, LogoutView, PasswordResetView, Pas
 
 class SignupPage(SignupView):
     template_name = 'account/signup.html'
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('account_login')
 
 class Logout(LogoutView):
     template_name = 'account/logout.html'
